@@ -1,8 +1,9 @@
 <?php
 require 'config.php';
 
-$name = $_POST['name'];
-$des = $_POST['des'];
+// $name = $_POST['name'];
+// $des = $_POST['des'];
+$firm_id = $_POST['firm_id'];
 $grp = $_POST['grp'];
 $ty = $_POST['ty'];
 $price = $_POST['price'];
@@ -13,12 +14,12 @@ $qty = $_POST['qty'];
 
 $conn = connection();
 
-$sql = "INSERT INTO `product` (`pro_typeid`, `pro_grpid`, `pro_name`, `pro_des`, `pro_price`, `cgst`, `igst`, `sgst`, `pro_qty`) VALUES ('$ty', '$grp', '$name', '$des', '$price', '$cgst', '$igst', '$sgst', '$qty');";
+$sql = "INSERT INTO `product` (`pro_typeid`, `pro_grpid`, `pro_firmid`, `pro_price`, `cgst`, `igst`, `sgst`, `pro_qty`) VALUES ('$ty', '$grp', '$firm_id', '$price', '$cgst', '$igst', '$sgst', '$qty');";
 $conn = connection();
 $conn->query($sql);
 
-$sql = "SELECT * FROM product p inner join category c on c.cat_id=p.pro_grpid inner join type t on t.ty_id=p.pro_typeid 
-		ORDER BY pro_name ASC";
+$sql = "SELECT * FROM product p inner join category c on c.cat_id=p.pro_grpid inner join type t on t.ty_id=p.pro_typeid inner join firm f on f.firm_id=p.pro_firmid
+		ORDER BY cat_name ASC";
 $data = $conn->query($sql);
 $conn=null;
 
@@ -28,7 +29,8 @@ $conn=null;
 	<thead>
 		<tr>
 			<th><center>S. no.</center></th>
-			<th><center>Name</center></th>
+			<!-- <th><center>Name</center></th> -->
+			<th><center>Firm</center></th>
 			<th><center>Category</center></th>
 			<th><center>Type</center></th>
 			<th><center>Price</center></th>
@@ -44,8 +46,9 @@ $conn=null;
 		foreach ($data as $row){ $s++; ?>
 		<tr>
 			<td><center><?php echo $s; ?></center></td>
-			<td><?php echo ucwords($row['pro_name']); ?></td>
-			<td><?php echo ucwords($row['pro_des']); ?></td>
+			<!-- <td><?php echo ucwords($row['pro_name']); ?></td> -->
+			<td><?php echo ucwords($row['firm_name']); ?></td>
+			<!-- <td><?php echo ucwords($row['pro_des']); ?></td> -->
 			<td><?php echo ucwords($row['cat_name']); ?></td>
 			<td><?php echo ucwords($row['ty_name']); ?></td>
 			<td><?php echo ucwords($row['pro_price']); ?></td>

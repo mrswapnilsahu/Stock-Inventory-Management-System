@@ -1,13 +1,17 @@
 <?php
   require 'config.php';
   $conn = connection();
-  $sql = "SELECT * FROM product p inner join category c on c.cat_id=p.pro_grpid inner join type t on t.ty_id=p.pro_typeid 
-    ORDER BY pro_name ASC";
+  $sql = "SELECT * FROM product p inner join category c on c.cat_id=p.pro_grpid inner join type t on t.ty_id=p.pro_typeid inner join firm f on f.firm_id=p.pro_firmid
+    ORDER BY cat_name ASC";
   $data = $conn->query($sql);
   $cat_dat = "SELECT * FROM category order by cat_name ASC";
   $cat_dat = $conn->query($cat_dat);
   $cat_dat1 = "SELECT * FROM category order by cat_name ASC";
   $cat_dat1 = $conn->query($cat_dat1);
+  $firm_data = "SELECT * FROM firm order by firm_name ASC";
+  $firm_data = $conn->query($firm_data);
+  $firm_data1 = "SELECT * FROM firm order by firm_name ASC";
+  $firm_data1 = $conn->query($firm_data1);
   $conn=null;
 
 ?>
@@ -18,13 +22,22 @@
             <h3 class="modal-title"><strong>ADD NEW PRODUCT</strong></h3>
           </div>
           <div class="modal-body">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Product Name</label>
               <input type="text" placeholder="enter product name" id="pro_name" required="" class="form-control input-xs parsley-error">
             </div>
             <div class="form-group">
               <label>Product Description</label>
               <input type="text" placeholder="enter product description" id="pro_des" required="" class="form-control input-xs parsley-error">
+            </div> -->
+            <div class="form-group">
+              <label>Select Firm</label>
+              <select class="form-control input-xs" id="pro_firmid" required="" onchange="get_mea()">
+                <option value="">select firm</option>                
+                <?php foreach ($firm_data as $fd) { ?>
+                  <option value="<?php echo $fd['firm_id']; ?>"><?php echo ucwords($fd['firm_name']); ?></option>
+                <?php } ?>
+              </select>
             </div>
             <div class="form-group">
               <label>Choose Category</label>
@@ -38,10 +51,7 @@
             <div class="form-group">
               <label>Choose Measurement</label>
               <span id="mea_data">
-                <select class="form-control input-xs" id="pro_ty" required="">
-                  <option value="">select type</option>
-                </select>
-              </span>
+                <select class="form-control input-xs" id="pro_ty" required=""></select>
             </div>
             <div class="form-group">
               <label>Price</label>
@@ -81,10 +91,10 @@
         <div class="tools"><span class="icon mdi"></span></div><span class="panel-subtitle"></span>
       </div>
       <div class="panel-body">
-        <div class="col-md-3">    
+        <!-- <div class="col-md-3">    
           <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
           <input type="text" value="" placeholder="Enter Name..." id="spro_name" onkeyup="srch_pro();" class="form-control input-xs">    
-        </div>
+        </div> -->
         <div class="col-md-3">    
           <label class="control-label panel-subtitle" style="color:white;">Search by category</label>      
           <select class="form-control input-xs chosen-select" id="spro_cat" onchange="srch_pro();">
@@ -94,16 +104,15 @@
             <?php } ?>
           </select>    
         </div>
-        <!-- <div class="col-md-3">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by measurement</label>      
-          <select class="form-control input-xs" required="">
-            <option value="">select measurement</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+        <div class="col-md-3">    
+          <label class="control-label panel-subtitle" style="color:white;">Search by Firm</label>      
+          <select class="form-control input-xs" required="" id="spro_firm" onchange="srch_pro();">
+            <option value="">select firm</option>
+            <?php foreach ($firm_data1 as $fd1){ ?>
+            <option value="<?php echo $fd1['firm_id']; ?>"><?php echo ucwords($fd1['firm_name']);; ?></option>
+            <?php } ?>
           </select>    
-        </div> -->
+        </div>
         <div class="col-md-3">
           <label class="control-label ">&nbsp;</label><br>
           <div class="btn-group btn-space">
@@ -123,8 +132,9 @@
           <thead>
             <tr>
               <th><center>S. no.</center></th>
-              <th><center>Name</center></th>
-              <th><center>Description</center></th>
+              <!-- <th><center>Name</center></th> -->
+              <th><center>Firm</center></th>
+              <!-- <th><center>Description</center></th> -->
               <th><center>Category</center></th>
               <th><center>Type</center></th>
               <th><center>Price</center></th>
@@ -140,8 +150,9 @@
                 foreach ($data as $row){ $s++; ?>
             <tr>
               <td><center><?php echo $s; ?></center></td>
-              <td><?php echo ucwords($row['pro_name']); ?></td>
-              <td><?php echo ucwords($row['pro_des']); ?></td>
+              <!-- <td><?php echo ucwords($row['pro_name']); ?></td> -->
+              <td><?php echo ucwords($row['firm_name']); ?></td>
+              <!-- <td><?php echo ucwords($row['pro_des']); ?></td> -->
               <td><?php echo ucwords($row['cat_name']); ?></td>
               <td><?php echo ucwords($row['ty_name']); ?></td>
               <td><?php echo ucwords($row['pro_price']); ?></td>
@@ -186,11 +197,12 @@
   function get_mea()
   {
     var grp = $('#pro_grp').val();
+    var firm = $('#pro_firmid').val();
     // alert(grp);
     $.ajax({
       type: "POST",
       url: 'get_pro_grp.php',
-      data: {grp:grp},
+      data: {grp:grp,firm:firm},
       success:function(msg) {
             // alert(msg);
             $('#mea_data').html(msg);
@@ -201,8 +213,9 @@
 <script>
   function add_pro()
   {
-    var name = $('#pro_name').val();
-    var des = $('#pro_des').val();
+    // var name = $('#pro_name').val();
+    // var des = $('#pro_des').val();
+    var firm_id = $('#pro_firmid').val();
     var grp = $('#pro_grp').val();
     var ty = $('#pro_ty').val();
     var price = $('#pro_price').val();
@@ -214,9 +227,9 @@
     $.ajax({
       type: "POST",
       url: 'pro_add.php',
-      data: {name:name,des:des,grp:grp,ty:ty,price:price,cgst:cgst,igst:igst,sgst:sgst,qty:qty},
+      data: {firm_id:firm_id,grp:grp,ty:ty,price:price,cgst:cgst,igst:igst,sgst:sgst,qty:qty},
       success:function(msg) {
-             // alert(msg);
+             alert(msg);
             $('#srch_pro').html(msg);
          }
     });
@@ -226,13 +239,14 @@
 <script>
   function srch_pro()
   {
-      var name = $('#spro_name').val();
+      // var name = $('#spro_name').val();
       var cat = $('#spro_cat').val();
+      var firm = $('#spro_firm').val();
       // alert(name);
       $.ajax({
       type: "POST",
       url: 'srch_pro.php',
-      data: {name:name,cat:cat},
+      data: {name:name,cat:cat,firm:firm},
       success:function(msg) {
              // alert(msg);
             $('#srch_pro').html(msg);
