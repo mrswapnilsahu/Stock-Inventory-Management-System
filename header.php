@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/img/logo-fav.png">
+    <link rel="shortcut icon" href="">
     <title>VKS</title>
     <link rel="stylesheet" type="text/css" href="assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/lib/material-design-icons/css/material-design-iconic-font.min.css"/>
@@ -35,7 +35,7 @@
         </div>
       </nav>
       <div class="be-left-sidebar">
-        <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">Blank Page</a>
+        <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle"></a>
           <div class="left-sidebar-spacer">
             <div class="left-sidebar-scroll">
               <div class="left-sidebar-content">
@@ -55,6 +55,7 @@
                   </li>
                   <li><a id="firm" onclick="callPro(this.id);" style="cursor: pointer;"><i class="icon mdi mdi-store"></i><span>Firm</span></a>
                   </li>
+                </li><li><a id="sb" onclick="callPro(this.id);" style="cursor: pointer;"><i class="icon mdi mdi-assignment"></i><span>Show Bill</span></a>
                 </ul>
               </div>
             </div>

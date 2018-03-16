@@ -15,7 +15,7 @@ $conn=null;
 			</div>
 			<div class="panel-body" style="background-color: #303F9F;">
 				<div class="col-md-4">    
-					<label class="control-label panel-subtitle" style="color:white;">Select Firm</label>
+					<label class="control-label  panel-subtitle" style="color:white;">Select Firm</label>
 					<select class="form-control input-xs" id="sty_grp" onchange="">
 						<option value="">Select Firm</option>                
 						<?php foreach ($data1 as $row) { ?>
@@ -26,12 +26,12 @@ $conn=null;
 			</div>
 		</div>
 	</div>
-	<form type="POST" action="billing.php">
+	<form type="POST" action="billing.php" onsubmit="calc_amt();">
 		<div class="col-sm-12">
 			<div class="panel panel-default panel-table">
-				<div class="panel-heading "><strong>Bill No&nbsp;:</strong> 
+				<div class="panel-heading "><strong>Name&nbsp;:</strong> 
 					
-					<input type="text" style="width: 100px" id="bill_no" name="bill_no" required="">       
+					<input type="text" name="bill_name" id="bill_name" value="" style="height: 25px;" required="">       
 					<div class="btn-group btn-space" style="float: right;">
 
 						<button class="btn btn-space md-trigger btn-danger" onclick="printDiv('printableArea');"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print</button>            
@@ -60,18 +60,21 @@ $conn=null;
 						
 						&nbsp;
 						<input type="hidden" name="count" id="count" value="0">
-						<input type="submit" class="btn btn-space md-trigger btn-danger" name="">
+						<br>
 						<span style="margin-left: 36px;">
-							<label>GST no.
-								<input type="number" name="gst_no" id="gst_no" value="">
+							<label>GST no.&nbsp;:
+								<input type="number" name="gst_no" id="gst_no" value="" required="">
 							</label>
-							<label>Transportation Charge
-								<input type="number" name="trans_chg" id="trans_chg" value="">
+							<label>Transportation Charge&nbsp;:
+								<input type="number" name="trans_chg" id="trans_chg" value="" required="">
 							</label>
-							<label>Transportation no.
-								<input type="text" name="trans_no" id="trans_no" value="">
+							<label>Transportation no.&nbsp;:
+								<input type="text" name="trans_no" id="trans_no" value="" required="">
 							</label>
 						</span>
+						<br>
+						<input type="hidden" name="total_amt" id="total_amt" value="" required="">
+						<input type="submit" class="btn btn-space md-trigger btn-danger" name="">
 						<a class="btn btn-space md-trigger btn-danger" onclick="add_row();" style="float: right;"><i class="icon icon-left mdi mdi-plus"></i>&nbsp;ADD PRODUCT</a>
 					</span>
 				</div>
@@ -214,4 +217,16 @@ $conn=null;
     //   "min" : 1
     // });
 }
+</script>
+<script type="text/javascript">
+	function calc_amt()
+	{
+		var count = parseInt($('#count').val());
+		var total = 0;
+		for (var i = 0; i < count; i++) {
+			total = total + parseInt($('#to_amt_'+i).val());
+			// alert(total);
+		}
+		$('#total_amt').val(total);
+	}
 </script>

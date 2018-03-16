@@ -10,7 +10,7 @@ function ty(){
 	include 'ty.php';
 }
 function dash(){
-	echo "<strong>UNDER CONSTRUCTION</strong>";
+	include 'dash.php';
 }
 function st(){
 	echo "<strong>UNDER CONSTRUCTION</strong>";
@@ -20,6 +20,9 @@ function firm(){
 }
 function bill(){
 	include 'bill.php';
+}
+function showbill(){
+	include 'sb.php';
 }
 
 	$link = $_POST['pro'];
@@ -34,12 +37,11 @@ function bill(){
 		dash();
 	}elseif ($link == 'st') {
 		st();
-	}
-	elseif ($link == 'bill') {
+	}elseif ($link == 'bill') {
 		bill();
-	}
-	elseif ($link == 'firm') {
+	}elseif ($link == 'firm') {
 		firm();
+	}elseif ($link == 'sb') {
+		showbill();
 	}
-
 ?>

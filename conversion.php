@@ -54,13 +54,13 @@ function convertNumberToWordsForIndia($number){
         if($i==6 && $value!=0){    $number_to_words_string.= "Hundred &amp; "; }            
     }
     if($number_length>9){ $number_to_words_string = "Sorry This does not support more than 99 Crores"; }
-    return ucwords(strtolower("Indian Rupees ".$number_to_words_string)." Only.");
+    return ucwords(strtolower("".$number_to_words_string)." Only.");
 }
-  echo "\n========= 907654321 ========";
-  echo convertNumberToWordsForIndia("907654321");
-  echo "\n========= 1000742 ========";
-  echo convertNumberToWordsForIndia("1000742");
-  echo "\n=============== 190000 ========";
-  echo convertNumberToWordsForIndia("190000");
+  // echo "\n========= 907654321 ========";
+  // echo convertNumberToWordsForIndia("907654321");
+  // echo "\n========= 1000742 ========";
+  // echo convertNumberToWordsForIndia("1000742");
+  // echo "\n=============== 190000 ========";
+  // echo convertNumberToWordsForIndia("190000");
     
 ?>

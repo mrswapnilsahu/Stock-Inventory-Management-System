@@ -37,5 +37,6 @@ $data = $conn->query($sql);
 	</td>	
 	<td><center>
 		<input type="number" name="to_amt_<?php echo $count; ?>" id="to_amt_<?php echo $count; ?>" value="" style="width: 100px;">
+		<input type="hidden" name="firm" value="<?php echo $_POST['firm']; ?>">
 		</center>
 	</td>
