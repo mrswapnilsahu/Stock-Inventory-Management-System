@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 08:21 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 5.6.33
+-- Host: localhost
+-- Generation Time: Mar 16, 2018 at 10:53 AM
+-- Server version: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.25-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,55 @@ SET time_zone = "+00:00";
 --
 -- Database: `vks`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill_products`
+--
+
+CREATE TABLE `bill_products` (
+  `bp_id` int(11) NOT NULL,
+  `bp_uid` varchar(300) NOT NULL,
+  `bp_pid` int(11) NOT NULL,
+  `bp_qty` int(11) NOT NULL,
+  `bp_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bill_products`
+--
+
+INSERT INTO `bill_products` (`bp_id`, `bp_uid`, `bp_pid`, `bp_qty`, `bp_price`) VALUES
+(1, 'March_16_2018_1_18_275aaace0be2cde', 58, 10, 182),
+(2, 'March_16_2018_9_17_445aab3e6062ea1', 1, 1, 17),
+(3, 'March_16_2018_9_29_365aab4128b7dee', 33, 3, 112),
+(4, 'March_16_2018_9_29_495aab41359a3df', 33, 3, 112);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill_records`
+--
+
+CREATE TABLE `bill_records` (
+  `bill_id` int(11) NOT NULL,
+  `bill_uid` varchar(300) NOT NULL,
+  `bill_name` varchar(300) NOT NULL,
+  `bill_gst` varchar(300) NOT NULL,
+  `bill_tchrg` int(11) NOT NULL,
+  `bill_tno` varchar(50) NOT NULL,
+  `bill_amt` int(11) NOT NULL,
+  `bill_entrydt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bill_records`
+--
+
+INSERT INTO `bill_records` (`bill_id`, `bill_uid`, `bill_name`, `bill_gst`, `bill_tchrg`, `bill_tno`, `bill_amt`, `bill_entrydt`) VALUES
+(1, 'March_16_2018_1_18_275aaace0be2cde', 'testing', '333', 222, 'XYZ-ABC-IJK', 1820, '2018-03-16 01:18:27'),
+(2, 'March_16_2018_9_17_445aab3e6062ea1', 'Swapnil', '123455678', 234, 'AB23WE3456', 17, '2018-03-16 09:17:44');
 
 -- --------------------------------------------------------
 
@@ -258,6 +305,18 @@ INSERT INTO `type` (`ty_id`, `ty_name`, `ty_grp`, `ty_status`) VALUES
 --
 
 --
+-- Indexes for table `bill_products`
+--
+ALTER TABLE `bill_products`
+  ADD PRIMARY KEY (`bp_id`);
+
+--
+-- Indexes for table `bill_records`
+--
+ALTER TABLE `bill_records`
+  ADD PRIMARY KEY (`bill_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -286,30 +345,35 @@ ALTER TABLE `type`
 --
 
 --
+-- AUTO_INCREMENT for table `bill_products`
+--
+ALTER TABLE `bill_products`
+  MODIFY `bp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `bill_records`
+--
+ALTER TABLE `bill_records`
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `firm`
 --
 ALTER TABLE `firm`
   MODIFY `firm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
-
 --
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
   MODIFY `ty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
