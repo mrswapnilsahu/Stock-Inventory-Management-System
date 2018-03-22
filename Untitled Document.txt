@@ -1,0 +1,11 @@
+<script type="text/javascript">
+function prints()
+{
+	var m  =  document.getElementById('print').innerHTML;
+	var s  =  document.body.innerHTML;
+	document.body.innerHTML= document.getElementById('print').innerHTML;
+	window.print();
+	document.body.innerHTML = s;
+}
+</script>
+

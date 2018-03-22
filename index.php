@@ -1,7 +1,5 @@
 <?php 
 include 'header.php';
-
-include 'pro.php';
-
+include 'dash.php';
 include 'footer.php';
 ?>

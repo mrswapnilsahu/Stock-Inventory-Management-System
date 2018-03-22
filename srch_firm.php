@@ -1,21 +1,17 @@
-<?php
+<?php 
+
 require 'config.php';
 
-$name = $_POST['name'];
-$des = $_POST['des'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
+$condition = "";
 
 $conn = connection();
-
-$sql = "INSERT INTO `firm` (`firm_name`, `firm_des`, `firm_no`, `firm_add`) VALUES ('$name', '$des','$phone','$address');";
-$conn = connection();
-$conn->query($sql);
-
-$sql = "SELECT * FROM `firm` ORDER BY `firm_name` ASC";
+// echo $_POST['name']; die;
+if(isset($_POST['name']) && $_POST['name']!=""){
+	$condition.=" and firm_name like '".$_POST['name']."%'";
+}
+$sql = "SELECT * FROM firm WHERE 0=0 $condition ORDER BY firm_name ASC";
 $data = $conn->query($sql);
 $conn=null;
-
 ?>
 
 <table class="table table-condensed table-hover table-bordered table-striped">

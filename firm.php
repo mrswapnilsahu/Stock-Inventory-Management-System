@@ -1,4 +1,5 @@
 <?php
+session_start();
   require 'config.php';
   $conn = connection();
   $sql = "SELECT * FROM firm ORDER BY firm_name ASC";
@@ -16,13 +17,20 @@
           <div class="modal-body">
             <div class="form-group">
               <label>Firm Name</label>
-              <input type="text" placeholder="enter firm name" id="firm_name" required="" class="form-control input-xs parsley-error">
+              <input type="text" placeholder="enter firm name" id="firm_name" class="form-control input-xs parsley-error" required="required">
             </div>
             <div class="form-group">
               <label>Firm Description</label>
-              <input type="text" placeholder="enter firm description" id="firm_des" required="" class="form-control input-xs parsley-error">
+              <input type="text" placeholder="enter firm description" id="firm_des" class="form-control input-xs parsley-error" required="required">
             </div>
-                               
+            <div class="form-group">
+              <label>Phone number</label>
+              <input type="number" placeholder="enter phone number" id="firm_no" class="form-control input-xs parsley-error" required="required">
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" placeholder="enter firm address" id="firm_add" class="form-control input-xs parsley-error" required="required">
+            </div>                   
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
@@ -43,17 +51,6 @@
           <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
           <input type="text" value="" placeholder="Enter Name..." id="sfirm_name" onkeyup="srch_firm();" class="form-control input-xs">    
         </div>
-       
-        <!-- <div class="col-md-3">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by measurement</label>      
-          <select class="form-control input-xs" required="">
-            <option value="">select measurement</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>    
-        </div> -->
         <div class="col-md-3">
           <label class="control-label ">&nbsp;</label><br>
           <div class="btn-group btn-space">
@@ -68,14 +65,15 @@
       <div class="panel-heading"><strong>Firm table</strong>
       </div>
       <div class="panel-body">
-        <span id="srch_pro">
+        <span id="srch_firm">
         <table class="table table-condensed table-hover table-bordered table-striped">
           <thead>
             <tr>
               <th><center>S. no.</center></th>
               <th><center>Name</center></th>
               <th><center>Description</center></th>
- 
+              <th><center>Phone</center></th>
+              <th><center>Address</center></th>
             </tr>
           </thead>
           <tbody style="color:black;">
@@ -85,7 +83,8 @@
               <td><center><?php echo $s; ?></center></td>
               <td><?php echo ucwords($row['firm_name']); ?></td>
               <td><?php echo ucwords($row['firm_des']); ?></td>
-
+              <td><?php echo ucwords($row['firm_no']); ?></td>
+              <td><?php echo ucwords($row['firm_add']); ?></td>
             </tr>
             <?php   } ?>
           </tbody>
@@ -112,39 +111,26 @@
     });
   }
 </script>
-<script>
-  function get_mea()
-  {
-    var grp = $('#pro_grp').val();
-    // alert(grp);
-    $.ajax({
-      type: "POST",
-      url: 'get_pro_grp.php',
-      data: {grp:grp},
-      success:function(msg) {
-            // alert(msg);
-            $('#mea_data').html(msg);
-         }
-    });
-  }
-</script>
+
 <script>
   function add_firm()
   { 
     var name = $('#firm_name').val();
     var des = $('#firm_des').val();
-    var grp = $('#firm_grp').val();
-    // alert(qty);
-    alert(name);
+    var phone = $('#firm_no').val();
+    var address = $('#firm_add').val();
+    // var grp = $('#firm_grp').val();
+    // alert(phone);
+    // alert(address);
     $.ajax({
       type: "POST",
       url: 'firm_add.php',
-      data: {name:name,des:des,
+      data: {name:name,des:des,phone:phone,address:address},
       success:function(msg) {
              // alert(msg);
             $('#srch_firm').html(msg);
          }
-    }});
+    });
 
   }
 </script>
