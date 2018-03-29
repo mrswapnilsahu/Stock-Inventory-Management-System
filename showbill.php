@@ -78,24 +78,4 @@
   </div>  
 </div>
 
-<script>
-  function srch_showbill()
-  {
-      var name = $('#sfirm_name').val();
-      // var gstin = $('#gstin').val();
-      var bill_no = $('#bill_no').val();
-      var type = 1;
-      // alert(name);
-      $.ajax({
-      type: "POST",
-      url: 'srch_showbill.php',
-      data: {name:name,bill_no:bill_no,type:type},
-      success:function(msg) {
-             // alert(msg);
-            $('#srch_showbill').html(msg);
-         }
-    }); 
-
-  }
-</script>
 

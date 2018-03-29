@@ -178,39 +178,39 @@ $conn=null;
     </div>
     <!-- firm modal close -->
     <div class="col-md-4">
-      <div class="panel panel-border-color panel-border-color-primary">
+      <div class="panel panel-border-color" style="border-top-color: #1f216d;">
         <div class="panel-heading"><strong>PRODUCTS DETAILS</strong></div>
         <div class="panel-body">
           <div class="xs-mt-10 xs-mb-10">
             <center>
-              <button data-toggle="modal" data-target="#form-product" class="btn btn-space md-trigger btn-primary btn-big"><i class="icon icon-left mdi mdi-shopping-cart-plus"></i> ADD </button>
-              <button class="btn btn-space btn-primary btn-big" id="pro" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
+              <button data-toggle="modal" data-target="#form-product" class="btn btn-space md-trigger btn-big" style="background-color: #1f216d; color: white;"><i class="icon icon-left mdi mdi-shopping-cart-plus"></i> ADD </button>
+              <button class="btn btn-space btn-big" style="background-color: #1f216d; color: white;" id="pro" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
             </center>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-border-color panel-border-color-success">
+      <div class="panel panel-border-color" style="border-top-color: #331419;">
         <div class="panel-heading"><strong>CATEGORY DETAILS</strong></div>
         <div class="panel-body">
           <div class="xs-mt-10 xs-mb-10">
             <center>
-              <button data-toggle="modal" data-target="#form-category" class="btn btn-space btn-success btn-big"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
-              <button class="btn btn-space btn-success btn-big" id="cat" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
+              <button data-toggle="modal" data-target="#form-category" class="btn btn-space btn-big" style="background-color: #331419; color: white;"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
+              <button class="btn btn-space btn-big" style="background-color: #331419; color: white;" id="cat" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
             </center>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-border-color panel-border-color-warning">
+      <div class="panel panel-border-color" style="border-top-color: #201f23;">
         <div class="panel-heading"><strong>MEASUREMENT DETAILS</strong></div>
         <div class="panel-body">
           <div class="xs-mt-10 xs-mb-10">
             <center>
-              <button data-toggle="modal" data-target="#form-measurement" class="btn btn-space btn-warning btn-big"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
-              <button class="btn btn-space btn-warning btn-big" id="ty" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
+              <button data-toggle="modal" data-target="#form-measurement" class="btn btn-space btn-big" style="background-color: #201f23; color: white;"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
+              <button class="btn btn-space btn-big" style="background-color: #201f23; color: white;" id="ty" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
             </center>
           </div>
         </div>
@@ -230,26 +230,26 @@ $conn=null;
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-border-color panel-border-color-primary" style="border-top-color: #F27C21;">
+      <div class="panel panel-border-color panel-border-color-primary" style="border-top-color: #9A1750;">
         <div class="panel-heading"><strong>SELLER BILLING DETAILS</strong></div>
         <div class="panel-body">
           <div class="xs-mt-10 xs-mb-10">
             <center>
-              <button class="btn btn-space btn-big" style="background-color: #F27C21; color: white;" onclick="window.location='sbill.php';"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
-              <button class="btn btn-space btn-big" style="background-color: #F27C21; color: white;" id="show_seller_bill" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
+              <button class="btn btn-space btn-big" style="background-color: #9A1750; color: white;" id="sbill" onclick="callPro(this.id);"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
+              <button class="btn btn-space btn-big" style="background-color: #9A1750; color: white;" id="show_seller_bill" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
             </center>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-border-color panel-border-color-primary" style="border-top-color: #90A4AE;">
+      <div class="panel panel-border-color panel-border-color-primary" style="border-top-color: #5d001e;">
         <div class="panel-heading"><strong>STOCK BILLING DETAILS</strong></div>
         <div class="panel-body">
           <div class="xs-mt-10 xs-mb-10">
             <center>
-              <button class="btn btn-space btn-big" style="background-color: #90A4AE; color: white;" onclick="window.location='bill.php';"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
-              <button class="btn btn-space btn-big" style="background-color: #90A4AE; color: white;" id="sb" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
+              <button class="btn btn-space btn-big" style="background-color: #5d001e; color: white;" id="bill" onclick="callPro(this.id);"><i class="icon mdi mdi-shopping-cart-plus"></i> ADD </button>
+              <button class="btn btn-space btn-big" style="background-color: #5d001e; color: white;" id="sb" onclick="callPro(this.id);"><i class="icon mdi mdi-view-list"></i> VIEW </button>
             </center>
           </div>
         </div>

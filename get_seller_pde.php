@@ -15,8 +15,8 @@ $conn=null;
 	<?php //if ($row['pro_qty']>0) { ?>
 		<!-- Available&nbsp;:<?php echo $row['pro_qty']; ?><br>
 	<input type="hidden" name="av_<?php echo $count; ?>" id="av_<?php echo $count; ?>" value="<?php echo $row['pro_qty']; ?>"> -->
-	<!-- Price&nbsp;: --><?php echo $row['pro_price']; ?><br>
-	<input type="hidden" name="p_<?php echo $count; ?>" id="p_<?php echo $count; ?>" value="<?php echo $row['pro_price']; ?>">
+	<!-- Price&nbsp;: --><?php echo $row['pro_sell_price']; ?><br>
+	<input type="hidden" name="p_<?php echo $count; ?>" id="p_<?php echo $count; ?>" value="<?php echo $row['pro_sell_price']; ?>">
 	<input type="hidden" name="p_cgst_<?php echo $count; ?>" id="p_cgst_<?php echo $count; ?>" value="<?php echo $row['cgst']; ?>">
 	<input type="hidden" name="p_igst_<?php echo $count; ?>" id="p_igst_<?php echo $count; ?>" value="<?php echo $row['igst']; ?>">
 	<input type="hidden" name="p_sgst_<?php echo $count; ?>" id="p_sgst_<?php echo $count; ?>" value="<?php echo $row['sgst']; ?>">

@@ -37,16 +37,16 @@
 <div class="col-md-12">
   <div class="col-md-12">
     <div class="panel panel-full-color panel-full-success">
-      <div class="panel-heading panel-heading-contrast"><strong>CATEGORY DETAILS</strong>
+      <div class="panel-heading panel-heading-contrast" style="background-color: #2e1114;"><strong>CATEGORY DETAILS</strong>
         <div class="tools"><span class="icon mdi"></span></div><span class="panel-subtitle"></span>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" style="background-color: #501b1d">
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Name</label>      
           <input type="text" id="scat_name" onkeyup="srch_cat();" placeholder="Enter Name..." class="form-control input-xs">    
         </div>
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Description</label>      
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Description</label>      
           <input type="text" id="scat_des" onkeyup="srch_cat();" placeholder="Enter description..." class="form-control input-xs">   
         </div>
         <div class="col-md-4">
@@ -60,7 +60,7 @@
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default panel-table">
-      <div class="panel-heading"><strong>Category table</strong>
+      <div class="panel-heading"><strong>CATEGORY TABLE</strong>
       </div>
       <div class="panel-body">
         <span id="srch_cat">

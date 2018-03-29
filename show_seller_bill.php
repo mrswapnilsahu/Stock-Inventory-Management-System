@@ -2,7 +2,7 @@
  
  require 'config.php';
  $conn = connection();
- $sql = "SELECT * FROM bill_records WHERE bill_type = 2 ORDER BY bill_entrydt DESC";
+ $sql = "SELECT * FROM seller_bill_records ORDER BY bill_entrydt DESC";
  $data = $conn->query($sql);
 
 ?>
@@ -10,7 +10,7 @@
 <!-- MODAL OPEN -->
 <div id="form-bp1"  role="dialog" class="modal fade colored-header colored-header-dark">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="width:800px;">
       <div class="modal-header" style="background-color: #F27C21; height: 100px;">
         <div class="col-md-12">
           <div class="col-md-6">
@@ -18,14 +18,14 @@
           </div>
           <div class="col-md-6">
             <div class="btn-group btn-space" style="float: right;">
-              <button class="btn btn-space md-trigger btn-danger" style="width: 100px;" onclick="prints();" formtarget="_blank"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print</button>&nbsp;
+              <button class="btn btn-space md-trigger btn-danger" style="width: 100px;" onclick="sprints();" formtarget="_blank"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print</button>&nbsp;
               <button type="button" class="close" data-dismiss="modal" style="float: right;">&times;</button>            
             </div>
           </div>
         </div>
       </div>
       <div class="modal-body">
-        <span id="view_bill">
+        <span id="sview_bill">
           
         </span>
       </div>
@@ -37,17 +37,17 @@
 <div class="col-md-12">
   <div class="col-md-12">
     <div class="panel panel-full-color panel-primary">
-      <div class="panel-heading panel-heading-contrast" style="background-color: #F27C21;"><strong>SELLER BILLING DETAILS</strong>
+      <div class="panel-heading panel-heading-contrast" style="background-color: #9A1750;"><strong>SELLER BILLING DETAILS</strong>
         <div class="tools"><span class="icon mdi"></span></div><span class="panel-subtitle"></span>
       </div>
-      <div class="panel-body" style="background-color: #F9A11F;">
+      <div class="panel-body" style="background-color: #5d001e;">
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
-          <input type="text" placeholder="Enter Name..." id="name" onkeyup="srch_showbill();" class="form-control input-xs">    
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Name</label>      
+          <input type="text" placeholder="Enter Name..." id="name" onkeyup="ssrch_showbill();" class="form-control input-xs">    
         </div>
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Bill no.</label>      
-          <input type="text" placeholder="Enter bill no." id="bill_no" onkeyup="srch_showbill();" class="form-control input-xs">    
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Bill no.</label>      
+          <input type="text" placeholder="Enter bill no." id="bill_no" onkeyup="ssrch_showbill();" class="form-control input-xs">    
         </div> 
         </div>
       </div>
@@ -55,9 +55,9 @@
 
   <div class="col-sm-12">
     <div class="panel panel-default panel-table">
-      <div class="panel-heading"><strong>BILL DETAILS</strong></div>
+      <div class="panel-heading text-center"><strong>SELLER BILL DETAILS</strong></div>
       <div class="panel-body">
-        <span id="srch_showbill">
+        <span id="ssrch_showbill">
         <table class="table table-condensed table-hover table-bordered table-striped">
           <thead>
             <tr>
@@ -80,11 +80,11 @@
               <td><center><strong><?php echo $row['bill_id']; ?></strong></center></td>
               <td><strong><?php echo ucwords($row['bill_name']); ?></strong></td>
               <td><strong><?php echo $row['bill_amt']."/-"; ?></strong></td>
-              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_gst'];?>" onkeyup="fill_gst(<?php echo $row['bill_id']; ?>, this.value);" class="form-control input-xs"></strong></td>
-              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_tchrg'];?>" onkeyup="fill_chrg(<?php echo $row['bill_id'];?>, this.value);" class="form-control input-xs"></strong></td>
-              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_tno'];?>" onkeyup="fill_tno(<?php echo $row['bill_id']; ?>, this.value);" class="form-control input-xs"></td>
+              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_gst'];?>" onkeyup="sfill_gst(<?php echo $row['bill_id']; ?>, this.value);" class="form-control input-xs"></strong></td>
+              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_tchrg'];?>" onkeyup="sfill_chrg(<?php echo $row['bill_id'];?>, this.value);" class="form-control input-xs"></strong></td>
+              <td><strong><input type="text" name="trans_no" value="<?php echo $row['bill_tno'];?>" onkeyup="sfill_tno(<?php echo $row['bill_id']; ?>, this.value);" class="form-control input-xs"></td>
               <td><strong><?php echo $row['bill_entrydt']; ?></td>
-              <td><center><button data-toggle="modal" onclick="view_bill(<?php echo $row['bill_id']; ?>)" data-target="#form-bp1" class="btn btn-danger text-center">View</button></center></td>
+              <td><center><button data-toggle="modal" onclick="sview_bill(<?php echo $row['bill_id']; ?>)" data-target="#form-bp1" class="btn btn-danger text-center">View</button></center></td>
             </tr>
             <?php   } ?>
           </tbody>
@@ -113,7 +113,7 @@
 
   }
 </script> -->
-<script>
+<!-- <script>
   function srch_showbill()
   {
       
@@ -130,8 +130,8 @@
          }
     });
   }
-</script>
-<script type="text/javascript">
+</script> -->
+<!-- <script type="text/javascript">
   function view_bill(id)
   {
     // alert(id);
@@ -189,15 +189,6 @@
     });
   }
 </script>
-<!-- <script>
-  function print(){
-    $('body').css('visibility', 'hidden');
-    $('#view_bill').css('visibility', 'visible');
-    window.print();
-  }
-</script>
-
- -->
  <script type="text/javascript">
 function prints()
 {
@@ -208,4 +199,4 @@ function prints()
   window.print();
   document.body.innerHTML = s;
 }
-</script>
+</script> -->

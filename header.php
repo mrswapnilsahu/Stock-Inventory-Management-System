@@ -18,10 +18,10 @@
       }
     </style>
   </head>
-  <body style="font-size: 18px; font-weight: bold; background-color: #dfdce3;">
-    <div class="be-wrapper be-color-header be-color-header-warning">
+  <body style="font-size: 18px; font-weight: bold; background-color: #dfdce3;" onload="dis();">
+    <div class="be-wrapper be-color-header be-color-header-primary">
       <nav class="navbar navbar-default navbar-fixed-top be-top-header">
-        <div class="container-fluid" style="background-color: #F27C21;">
+        <div class="container-fluid" style="background-color: #05386b;">
           <div class="navbar-header">
             
           </div>
@@ -31,7 +31,7 @@
                 <ul role="menu" class="dropdown-menu">
                   <!-- <li><a href="#"><span class="icon mdi mdi-face"></span> Account</a></li>
                   <li><a href="#"><span class="icon mdi mdi-settings"></span> Settings</a></li> -->
-                  <li><a href="logout.php"><span class="icon mdi mdi-power"></span> Logout</a></li>
+                  <li><a href="index.html"><span class="icon mdi mdi-power"></span> Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -40,18 +40,18 @@
           </div>
         </div>
       </nav>
-      <div class="be-left-sidebar" style="background-color: #F9A11F;">
+      <div class="be-left-sidebar " style="background-color: #2f2fa2; position: fixed;">
         <div class="left-sidebar-wrapper "><a href="#" class="left-sidebar-toggle"></a>
-          <div class="left-sidebar-spacer">
+          <div class="left-sidebar-spacer" >
             <div class="left-sidebar-scroll">
               <div class="left-sidebar-content">
                 <ul class="sidebar-elements">
-                  <li class="divider big" style="color: white;">Menu</li>
+                  <li class="divider" style="color: white;font-size: 18px;">Menu</li>
                     <li><a id="dash" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-store"></i><span>Dashboard</span></a>
                   </li>
                   <li><a id="pro" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-local-grocery-store"></i><span>Product Details</span></a>
                   </li>
-                  <li><a id="pro_list" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-local-grocery-store"></i><span>Product List</span></a>
+                  <li><a id="pro_list" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-money"></i><span>Price List</span></a>
                   </li>
                   <li><a id="cat" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-receipt"></i><span>Category</span></a>
                   </li>
@@ -60,6 +60,8 @@
                   <li><a id="st" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-grain"></i><span>Stock Details</span></a>
                   </li>
                   <li><a id="firm" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-store"></i><span>Firm</span></a>
+                  </li>
+                  <li><a id="c_bill" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-assignment"></i><span>Custom Billing</span></a>
                   </li>
                   <li><a id="bill" onclick="callPro(this.id);" style="cursor: pointer; color: white;"><i class="icon mdi mdi-assignment"></i><span>Stock Billing</span></a>
                   </li>

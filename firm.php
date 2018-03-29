@@ -48,7 +48,7 @@ session_start();
       </div>
       <div class="panel-body" style="background-color: #00796B;">
         <div class="col-md-3">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Name</label>      
           <input type="text" value="" placeholder="Enter Name..." id="sfirm_name" onkeyup="srch_firm();" class="form-control input-xs">    
         </div>
         <div class="col-md-3">
@@ -62,7 +62,7 @@ session_start();
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default panel-table">
-      <div class="panel-heading"><strong>Firm table</strong>
+      <div class="panel-heading text-center"><strong>FIRM TABLE</strong>
       </div>
       <div class="panel-body">
         <span id="srch_firm">

@@ -32,6 +32,9 @@ function seller_bill(){
 function show_seller_bill(){
 	include 'show_seller_bill.php';
 }
+function custom_bill(){
+	include 'custom_billing.php';
+}
 
 	$link = $_POST['pro'];
 	
@@ -57,5 +60,7 @@ function show_seller_bill(){
 		seller_bill();
 	}elseif ($link == 'show_seller_bill') {
 		show_seller_bill();
+	}elseif ($link == 'c_bill') {
+		custom_bill();
 	}
 ?>

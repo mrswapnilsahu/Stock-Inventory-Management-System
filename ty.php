@@ -44,17 +44,17 @@
 <!-- MODAL CLOSE -->
 <div class="col-md-12">
   <div class="col-md-12">
-    <div class="panel panel-full-color panel-full-warning">
-      <div class="panel-heading panel-heading-contrast" style="background-color: #cc9e4c;"><strong>MEASUREMENT DETAILS</strong>
+    <div class="panel panel-full-color">
+      <div class="panel-heading panel-heading-contrast" style="background-color: #1a1a1d;"><strong>MEASUREMENT DETAILS</strong>
         <div class="tools"><span class="icon mdi"></span></div><span class="panel-subtitle"></span>
       </div>
-      <div class="panel-body">
+      <div class="panel-body"  style="background-color: #4e4e50">
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Name</label>      
           <input type="text" value=""  id="sty_name" placeholder="Enter Name..." class="form-control input-xs" onkeyup="srch_ty();">    
         </div>
         <div class="col-md-4">    
-          <label class="control-label panel-subtitle" style="color:white;">Search by Group</label>
+          <label class="control-label panel-subtitle" style="color:white;font-size:20px;">Search by Group</label>
           <select class="form-control input-xs" id="sty_grp" required="" onchange="srch_ty();">
             <option value="">Select group</option>                
             <?php foreach ($data1 as $row) { ?>
@@ -73,7 +73,7 @@
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default panel-table">
-      <div class="panel-heading"><strong>Measurement table</strong>
+      <div class="panel-heading text-center"><strong>MEASUREMENT TABLE</strong>
       </div>
       <div class="panel-body">
         <span id="srch_ty">

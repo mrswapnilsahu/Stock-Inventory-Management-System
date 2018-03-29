@@ -10,7 +10,7 @@ $conn=null;
 <div class="col-md-12">
 	<div class="col-md-12">
 		<div class="panel panel-full-color panel-primary">
-			<div class="panel-heading panel-heading-contrast" style="background-color: #F27C21;"><strong>SELLER BILLING</strong>
+			<div class="panel-heading panel-heading-contrast" style="background-color: #9A1750;"><strong>SELLER BILLING</strong>
 				<div class="tools"><span class="icon mdi"></span></div><span class="panel-subtitle"></span>
 			</div>
 		</div>
@@ -33,12 +33,31 @@ $conn=null;
 			</div>
 		</div>
 	</div> -->
-	<form type="POST" action="billing.php" onsubmit="calc_amt();">
+	<form type="POST" action="seller_billing.php" onsubmit="calc_amt();">
 		<div class="col-sm-12">
 			<div class="panel panel-default panel-table">
-				<div class="panel-heading "><strong>Name&nbsp;:</strong> 
+				<div class="panel-heading ">
 					
-					<input type="text" name="bill_name" id="bill_name" value="" style="height: 25px;" required="">       
+					<div class="col-md-6">
+						<div class="col-md-3">
+							<label style="font-size: 18px; "><strong>Name&nbsp;:</strong></label>
+						</div>
+						<div class="col-md-3" style="margin-left: -10%;">
+							<input type="text" name="bill_name" id="bill_name" value="" style="height: 25px;" required="">
+						</div>								
+					</div>
+					<div class="col-md-6" style="float: right;">
+						<div class="col-md-2">
+							<label style="font-size: 18px;">Tax :</label>
+						</div>
+						<div class="col-md-4">
+							<select class="form-control input-xs" id="pro_tax_type" required="">
+								<option value="">Select Tax</option>  								
+								<option value="1">CGST + SGST</option>
+								<option value="2">IGST</option>
+							</select>
+						</div>								
+					</div>     
 					<!-- div class="btn-group btn-space" style="float: right;">
 						<button class="btn btn-space md-trigger btn-danger" onclick="printDiv('printableArea');"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print</button>            
 					</div> -->         
@@ -84,8 +103,17 @@ $conn=null;
 						<input type="hidden" name="bill_type" value="2">
 						<!-- <input type="submit" class="btn btn-space md-trigger btn-danger" name=""> -->
 						<div class="col-md-12">
-							<div class="col-md-2">
-								<a class="btn btn-space md-trigger btn-warning" onclick="add_row();" style="float: right;"><i class="icon icon-left mdi mdi-plus"></i>&nbsp;ADD PRODUCT</a>
+							<div class="col-md-6">
+								<div class="col-md-5">
+									<label style="font-size: 18px; ">Transport Charge&nbsp;:</label>
+								</div>
+								<div class="col-md-1">
+									<input type="text" name="tr_amt" id="tr_amt" class="form-control input-xs" value="0" style="width: 100px;" >
+								</div>
+								
+							</div>
+							<div class="col-md-2" style="margin-left: -12%">
+								<a class="btn btn-space md-trigger btn-warning" onclick="add_seller_row();" style="float: right;"><i class="icon icon-left mdi mdi-plus"></i>&nbsp;ADD PRODUCT</a>
 							</div>
 							<div class="col-md-2">
 								<button type="submit" style="width:146px;" class="btn btn-space md-trigger btn-success" formtarget="_blank"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print Bill</button> 
@@ -98,7 +126,7 @@ $conn=null;
 		</div>
 </form>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	function fetch_firm(val)
 	{
 		value = val;
@@ -215,4 +243,4 @@ $conn=null;
 		}
 		$('#total_amt').val(total);
 	}
-</script>
+</script> -->

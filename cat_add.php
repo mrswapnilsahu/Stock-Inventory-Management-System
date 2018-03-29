@@ -10,14 +10,14 @@ $check = "SELECT *  FROM `category` WHERE `cat_name` = '$name'";
 $check = $conn->query($check);
 //echo count($check); die;
 if ($check->rowCount() > 0) {
-	echo "<span class=\"splash-description\">Category already exist.</span>";
+	echo "<span style='font-size:20px;color:red;' class=\"splash-description\">Category already exist.</span><br>";
 	$conn=null;
 }else{
 	$sql = "INSERT INTO category (cat_name, cat_des)
 	VALUES ('$name', '$des')";
 	$conn->query($sql);
 	$conn=null;
-	echo "<span class=\"splash-description\">Category added.</span>";
+	echo "<span style='font-size:20px;color:green;' class=\"splash-description\">Category added.</span><br>";
 }
 
 $conn = connection();
