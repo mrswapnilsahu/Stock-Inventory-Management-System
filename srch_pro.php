@@ -26,14 +26,15 @@ $conn=null;
 		<tr>
 			<th><center>S. no.</center></th>
 			<!-- <th><center>Name</center></th> -->
-			<!-- <th><center>Description</center></th> -->
 			<th><center>Firm</center></th>
+			<!-- <th><center>Description</center></th> -->
 			<th><center>Category</center></th>
 			<th><center>Type</center></th>
-			<th><center>Price</center></th>
+			<th><center>Stock Price</center></th>
+			<th><center>Seller Price</center></th>
 			<th><center>CGST</center></th>
-            <th><center>IGST</center></th>
-            <th><center>SGST</center></th>
+			<th><center>IGST</center></th>
+			<th><center>SGST</center></th>
 			<th><center>Quantity</center></th>
 			<th><center>Status</center></th>
 		</tr>
@@ -44,14 +45,16 @@ $conn=null;
 		<tr>
 			<td><center><?php echo $s; ?></center></td>
 			<!-- <td><?php echo ucwords($row['pro_name']); ?></td> -->
-			<!-- <td><?php echo ucwords($row['pro_des']); ?></td> -->
 			<td><?php echo ucwords($row['firm_name']); ?></td>
+			<!-- <td><?php echo ucwords($row['pro_des']); ?></td> -->
 			<td><?php echo ucwords($row['cat_name']); ?></td>
 			<td><?php echo ucwords($row['ty_name']); ?></td>
 			<td><?php echo ucwords($row['pro_price']); ?></td>
+			<td><input type="text" id="<?php echo $row['pro_id']; ?>" value="<?php echo $row['pro_sell_price']; ?>" style="width: 80px; padding: 3px;" onkeyup="add_sell_price(this.value, this.id);">
+			</td>
 			<td><?php echo ucwords($row['cgst'])."%"; ?></td>
-            <td><?php echo ucwords($row['igst'])."%"; ?></td>
-            <td><?php echo ucwords($row['sgst'])."%"; ?></td>
+			<td><?php echo ucwords($row['igst'])."%"; ?></td>
+			<td><?php echo ucwords($row['sgst'])."%"; ?></td>
 			<td><?php echo ucwords($row['pro_qty']); ?></td>
 			<td><?php
 			if ($row['pro_qty'] > 0) {

@@ -1,17 +1,17 @@
-<!-- VIEW BUTTON OF STOCK -->
+<!-- VIEW BUTTON OF SELLER BILL DETAILS -->
 <?php
 $id = $_REQUEST['id'];
 
 require 'config.php';
 require 'conversion.php';
 $conn = connection();
-$bill_info = "SELECT * FROM `bill_records` WHERE `bill_id` = $id";
+$bill_info = "SELECT * FROM `seller_bill_records` WHERE `bill_id` = $id";
 $inf = $conn->query($bill_info);
 foreach ($inf as $row) {
 	$uid = $row['bill_uid'];
 	
 }
-$pro = "SELECT f.firm_name,c.cat_name,t.ty_name,bp.bp_qty,bp.bp_price,p.pro_price FROM `bill_products` bp INNER JOIN product p ON p.pro_id = bp.bp_pid INNER JOIN category c ON c.cat_id=p.pro_grpid INNER JOIN type t ON t.ty_id=p.pro_typeid INNER JOIN firm f ON f.firm_id= p.pro_firmid WHERE bp.bp_uid = '$uid'";
+$pro = "SELECT f.firm_name,c.cat_name,t.ty_name,bp.bp_qty,bp.bp_price,p.pro_price FROM `seller_bill_products` bp INNER JOIN product p ON p.pro_id = bp.bp_pid INNER JOIN category c ON c.cat_id=p.pro_grpid INNER JOIN type t ON t.ty_id=p.pro_typeid INNER JOIN firm f ON f.firm_id= p.pro_firmid WHERE bp.bp_uid = '$uid'";
 $detail = $conn->query($pro);
 
 ?>

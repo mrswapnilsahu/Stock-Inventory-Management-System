@@ -26,10 +26,10 @@
           <label class="control-label panel-subtitle" style="color:white;">Search by Name</label>      
           <input type="text" value="" placeholder="Enter Name..." id="sfirm_name" onkeyup="srch_showbill();" class="form-control input-xs">    
         </div>
-        <div class="col-md-4">    
+        <!-- <div class="col-md-4">    
           <label class="control-label panel-subtitle" style="color:white;">Search by GSTIN</label>      
           <input type="text" value="" placeholder="Enter GSTIN" id="gstin" onkeyup="srch_showbill();" class="form-control input-xs">    
-        </div>
+        </div> -->
         <div class="col-md-4">    
           <label class="control-label panel-subtitle" style="color:white;">Search by Bill no.</label>      
           <input type="text" value="" placeholder="Enter bill no." id="bill_no" onkeyup="srch_showbill();" class="form-control input-xs">    
@@ -78,23 +78,4 @@
   </div>  
 </div>
 
-<script>
-  function srch_showbill()
-  {
-      var name = $('#sfirm_name').val();
-      var gstin = $('#gstin').val();
-      var bill_no = $('#bill_no').val();
-      // alert(name);
-      $.ajax({
-      type: "POST",
-      url: 'srch_showbill.php',
-      data: {name:name,gstin:gstin,bill_no:bill_no},
-      success:function(msg) {
-             // alert(msg);
-            $('#srch_showbill').html(msg);
-         }
-    }); 
-
-  }
-</script>
 

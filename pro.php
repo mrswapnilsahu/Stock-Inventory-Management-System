@@ -2,7 +2,7 @@
   require 'config.php';
   $conn = connection();
   $sql = "SELECT * FROM product p inner join category c on c.cat_id=p.pro_grpid inner join type t on t.ty_id=p.pro_typeid inner join firm f on f.firm_id=p.pro_firmid
-    ORDER BY cat_name ASC";
+    ORDER BY cat_name ASC ";
   $data = $conn->query($sql);
   $cat_dat = "SELECT * FROM category order by cat_name ASC";
   $cat_dat = $conn->query($cat_dat);
@@ -98,7 +98,7 @@
         <div class="col-md-3">    
           <label class="control-label panel-subtitle" style="color:white;">Search by category</label>      
           <select class="form-control input-xs chosen-select" id="spro_cat" onchange="srch_pro();">
-            <option value="">select category</option>
+            <option value="">Select category</option>
             <?php foreach ($cat_dat1 as $row) { ?>
             <option value="<?php echo $row['cat_id']; ?>"><?php echo ucwords($row['cat_name']); ?></option>
             <?php } ?>
@@ -107,7 +107,7 @@
         <div class="col-md-3">    
           <label class="control-label panel-subtitle" style="color:white;">Search by Firm</label>      
           <select class="form-control input-xs" required="" id="spro_firm" onchange="srch_pro();">
-            <option value="">select firm</option>
+            <option value="">Select firm</option>
             <?php foreach ($firm_data1 as $fd1){ ?>
             <option value="<?php echo $fd1['firm_id']; ?>"><?php echo ucwords($fd1['firm_name']);; ?></option>
             <?php } ?>
@@ -137,7 +137,8 @@
               <!-- <th><center>Description</center></th> -->
               <th><center>Category</center></th>
               <th><center>Type</center></th>
-              <th><center>Price</center></th>
+              <th><center>Stock Price</center></th>
+              <th><center>Seller Price</center></th>
               <th><center>CGST</center></th>
               <th><center>IGST</center></th>
               <th><center>SGST</center></th>
@@ -156,6 +157,8 @@
               <td><?php echo ucwords($row['cat_name']); ?></td>
               <td><?php echo ucwords($row['ty_name']); ?></td>
               <td><?php echo ucwords($row['pro_price']); ?></td>
+              <td><input type="text" id="<?php echo $row['pro_id']; ?>" value="<?php echo $row['pro_sell_price']; ?>" style="width: 80px; padding: 3px;" onkeyup="add_sell_price(this.value, this.id);">
+              </td>
               <td><?php echo ucwords($row['cgst'])."%"; ?></td>
               <td><?php echo ucwords($row['igst'])."%"; ?></td>
               <td><?php echo ucwords($row['sgst'])."%"; ?></td>
@@ -229,7 +232,7 @@
       url: 'pro_add.php',
       data: {firm_id:firm_id,grp:grp,ty:ty,price:price,cgst:cgst,igst:igst,sgst:sgst,qty:qty},
       success:function(msg) {
-             alert(msg);
+             // alert(msg);
             $('#srch_pro').html(msg);
          }
     });
@@ -255,4 +258,5 @@
 
   }
 </script>
+
 

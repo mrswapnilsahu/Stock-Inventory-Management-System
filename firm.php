@@ -1,4 +1,5 @@
 <?php
+session_start();
   require 'config.php';
   $conn = connection();
   $sql = "SELECT * FROM firm ORDER BY firm_name ASC";

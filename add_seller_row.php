@@ -14,7 +14,7 @@ $data = $conn->query($sql);
 
 	<td><center><?php echo $count+1; ?></center></td>
 	<td>
-		<select class="form-control input-xs chosen-select" id="bill_f_<?php echo $count; ?>" name="bill_f_<?php echo $count; ?>" onchange="get_cat(this.value,this.id);" required="">
+		<select class="form-control input-xs chosen-select" id="bill_f_<?php echo $count; ?>" name="bill_f_<?php echo $count; ?>" onchange="get_seller_cat(this.value,this.id);" required="">
 			<option value="">Select Firm</option>                
 			<?php foreach ($fdata as $row) { ?>
 			<option value="<?php echo $row['firm_id']; ?>"><?php echo ucwords($row['firm_name']); ?></option>
@@ -22,7 +22,7 @@ $data = $conn->query($sql);
 		</select>
 	</td>
 	<td>
-		<select class="form-control input-xs chosen-select" id="bill_p_<?php echo $count; ?>" name="bill_p_<?php echo $count; ?>" onchange="get_size(this.value,this.id);" required="">
+		<select class="form-control input-xs chosen-select" id="bill_p_<?php echo $count; ?>" name="bill_p_<?php echo $count; ?>" onchange="get_seller_size(this.value,this.id);" required="">
 			<option value="">Select Product</option>                
 			<?php foreach ($data as $row) { ?>
 			<option value="<?php echo $row['cat_id']; ?>"><?php echo ucwords($row['cat_name']); ?></option>
@@ -31,7 +31,7 @@ $data = $conn->query($sql);
 	</td>
 	
 	<td>
-		<select class="form-control input-xs chosen-select" id="bill_s_<?php echo $count; ?>" name="bill_s_<?php echo $count; ?>" onchange="get_pde(this.id);" required="">                  
+		<select class="form-control input-xs chosen-select" id="bill_s_<?php echo $count; ?>" name="bill_s_<?php echo $count; ?>" onchange="get_seller_pde(this.id);" required="">                  
 			<option value="">Size</option>
 		</select>
 	</td>

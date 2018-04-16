@@ -1,12 +1,7 @@
 <?php
-function dash(){
-	include 'dash.php';
-}	
+session_start();	
 function pro(){
 	include 'pro.php';	
-}
-function pro_list(){
-	include 'pro_list.php';	
 }
 function cat(){
 	include 'cat.php';
@@ -14,8 +9,11 @@ function cat(){
 function ty(){
 	include 'ty.php';
 }
+function dash(){
+	include 'dash.php';
+}
 function st(){
-	include 'stock_details.php';;
+	echo "<strong>UNDER CONSTRUCTION</strong>";
 }
 function firm(){
 	include 'firm.php';
@@ -26,22 +24,11 @@ function bill(){
 function showbill(){
 	include 'sb.php';
 }
-function seller_bill(){
-	include 'sbill.php';
-}
-function show_seller_bill(){
-	include 'show_seller_bill.php';
-}
-function custom_bill(){
-	include 'custom_billing.php';
-}
 
 	$link = $_POST['pro'];
 	
 	if ($link == 'pro') {
 		pro();
-	}elseif ($link == 'pro_list') {
-		pro_list();
 	}elseif ($link == 'cat') {
 		cat();
 	}elseif ($link == 'ty') {
@@ -56,11 +43,5 @@ function custom_bill(){
 		firm();
 	}elseif ($link == 'sb') {
 		showbill();
-	}elseif ($link == 'sbill') {
-		seller_bill();
-	}elseif ($link == 'show_seller_bill') {
-		show_seller_bill();
-	}elseif ($link == 'c_bill') {
-		custom_bill();
 	}
 ?>
