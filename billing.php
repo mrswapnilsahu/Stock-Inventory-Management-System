@@ -2,15 +2,12 @@
 require 'config.php';
 require 'conversion.php';
 
-// echo convertNumberToWordsForIndia(10); die;
-
 $conn = connection();
 
 // Generate the unique id for every bill
 
 $date = date("F_j_Y_G_i_s");
 $uid = uniqid($date);
-// echo $uid; die;
 
 // code to make entry in the bill table
 
@@ -22,8 +19,7 @@ $entrydt = date("Y-m-d H:i:s");
 $total = $_REQUEST['total_amt'];
 
 $record = "INSERT INTO bill_records (bill_uid, bill_name, bill_gst, bill_tchrg, bill_tno, bill_amt, bill_entrydt) VALUES ('$uid', '$bill_name', $gst, $tchrg, $tno, $total, '$entrydt')";
-//$conn->query($record);
-// die;
+
 if(isset($_REQUEST['firm']) && $_REQUEST['firm']!=""){
 	$condition.=" and pro_firmid = '".$_REQUEST['firm']."'";
 	

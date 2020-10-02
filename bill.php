@@ -40,10 +40,7 @@ $conn=null;
 								<option value="2">IGST</option>
 							</select>
 						</div>								
-					</div>       
-					<!-- div class="btn-group btn-space" style="float: right;">
-						<button class="btn btn-space md-trigger btn-danger" onclick="printDiv('printableArea');"><i class="icon icon-left mdi mdi-assignment"></i>&nbsp;Print</button>            
-					</div> -->         
+					</div>    
 				</div>
 				<div class="panel-body">
 					<span id="srch_ty">

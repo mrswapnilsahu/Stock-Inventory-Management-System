@@ -1,6 +1,5 @@
 <?php
 require 'config.php';
-// echo $_REQUEST['firm']; die;
 $count = $_POST['count'];
 $conn = connection();
 $firm = "SELECT firm_id,firm_name FROM firm ORDER BY firm_name ASC";
@@ -39,7 +38,6 @@ $data = $conn->query($sql);
 		<input type="number" style="width: 100px;" min="1" max="???" step="1" id="bill_q_<?php echo $count; ?>" required="" name="bill_q_<?php echo $count; ?>" onkeyup="calc(this.id,this.value);" class="form-control input-xs" required="">
 	</td>
 	<td id="bill_a_<?php echo $count; ?>">
-		<!-- Available&nbsp;: -->
 	</td>	
 	<td><center>
 		<input type="number" name="to_amt_<?php echo $count; ?>" id="to_amt_<?php echo $count; ?>" value="" style="width: 100px;">

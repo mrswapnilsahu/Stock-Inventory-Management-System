@@ -1,6 +1,5 @@
 <?php
 require 'config.php';
-// echo $_REQUEST['firm']; die;
 $count = $_POST['count'];
 $conn = connection();
 $firm = "SELECT firm_id,firm_name FROM firm ORDER BY firm_name ASC";
