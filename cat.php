@@ -96,14 +96,12 @@
 <script>
   function callPro(id)
   {
-    var pro = id;
-    // alert(id);
+    const pro = id;
     $.ajax({
       type: "POST",
       url: 'nav.php',
       data: {pro:pro},
       success:function(msg) {
-            // alert(msg);
             $('#output').html(msg);
          }
     });
@@ -112,8 +110,8 @@
 <script>
   function add_cat()
   {
-    var name = $('#acat_name').val();
-    var des = $('#acat_des').val();
+    const name = $('#acat_name').val();
+    const des = $('#acat_des').val();
     $.ajax({
       type: "POST",
       url: 'cat_add.php',
@@ -128,14 +126,13 @@
 <script>
   function srch_cat()
   {
-    var sname = $('#scat_name').val();
-    var sdes = $('#scat_des').val();
+    const sname = $('#scat_name').val();
+    const sdes = $('#scat_des').val();
     $.ajax({
       type: "POST",
       url: 'srch_cat.php',
       data: {sname:sname,sdes:sdes},
       success:function(msg) {
-            //alert(msg);
             $('#srch_cat').html(msg);
          }
     });

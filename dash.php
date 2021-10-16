@@ -263,14 +263,14 @@ $conn=null;
  {
     // var name = $('#pro_name').val();
     // var des = $('#pro_des').val();
-    var firm_id = $('#pro_firmid').val();
-    var grp = $('#pro_grp').val();
-    var ty = $('#pro_ty').val();
-    var price = $('#pro_price').val();
-    var cgst = $('#cgst').val();
-    var igst = $('#igst').val();
-    var sgst = $('#sgst').val();
-    var qty = $('#pro_qty').val();
+    const firm_id = $('#pro_firmid').val();
+    const grp = $('#pro_grp').val();
+    const ty = $('#pro_ty').val();
+    const price = $('#pro_price').val();
+    const cgst = $('#cgst').val();
+    const igst = $('#igst').val();
+    const sgst = $('#sgst').val();
+    const qty = $('#pro_qty').val();
     // alert(qty);
     $.ajax({
       type: "POST",
@@ -288,8 +288,8 @@ $conn=null;
 <script>
   function add_cat()
   {
-    var name = $('#acat_name').val();
-    var des = $('#acat_des').val();
+    const name = $('#acat_name').val();
+    const des = $('#acat_des').val();
     $.ajax({
       type: "POST",
       url: 'cat_add.php',
@@ -306,8 +306,8 @@ $conn=null;
 <script>
   function add_ty()
   {
-    var name = $('#ty_name').val();
-    var grp = $('#ty_grp').val();
+    const name = $('#ty_name').val();
+    const grp = $('#ty_grp').val();
     // alert(grp);
     $.ajax({
       type: "POST",
@@ -324,10 +324,10 @@ $conn=null;
 <script>
   function add_firm()
   { 
-    var name = $('#firm_name').val();
-    var des = $('#firm_des').val();
-    var phone = $('#firm_no').val();
-    var address = $('#firm_add').val();
+    const name = $('#firm_name').val();
+    const des = $('#firm_des').val();
+    const phone = $('#firm_no').val();
+    const address = $('#firm_add').val();
     // var grp = $('#firm_grp').val();
     // alert(phone);
     // alert(address);
@@ -347,8 +347,8 @@ $conn=null;
 <script>
   function get_mea()
   {
-    var grp = $('#pro_grp').val();
-    var firm = $('#pro_firmid').val();
+    const grp = $('#pro_grp').val();
+    const firm = $('#pro_firmid').val();
     // alert(grp);
     $.ajax({
       type: "POST",

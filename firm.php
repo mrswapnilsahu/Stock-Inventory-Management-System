@@ -98,7 +98,7 @@ session_start();
 <script>
   function callPro(id)
   {
-    var pro = id;
+    const pro = id;
     // alert(id);
     $.ajax({
       type: "POST",
@@ -115,10 +115,10 @@ session_start();
 <script>
   function add_firm()
   { 
-    var name = $('#firm_name').val();
-    var des = $('#firm_des').val();
-    var phone = $('#firm_no').val();
-    var address = $('#firm_add').val();
+    const name = $('#firm_name').val();
+    const des = $('#firm_des').val();
+    const phone = $('#firm_no').val();
+    const address = $('#firm_add').val();
     // var grp = $('#firm_grp').val();
     // alert(phone);
     // alert(address);
@@ -137,7 +137,7 @@ session_start();
 <script>
   function srch_firm()
   {
-      var name = $('#sfirm_name').val();
+    const name = $('#sfirm_name').val();
    
       // alert(name);
       $.ajax({
